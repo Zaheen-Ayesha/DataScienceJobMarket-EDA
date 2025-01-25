@@ -1,5 +1,4 @@
-## Project Title
-#### Data Science Job Market Analysis using EDA
+## Data Science Job Market Analysis using EDA
 
 This project provides insights into the data science job market using exploratory data analysis techniques. The analysis uncovers key trends in job titles, salaries, skills, and industry characteristics, enabling stakeholders to make informed decisions about career paths, hiring strategies, and competitive benchmarking. The size of the dataset is 12079 rows x 20 Columns. Each row in dataset contains information about job listings such as job title,company name,skill requirement etc.
 
@@ -12,7 +11,7 @@ The primary objective of this project is to analyze the landscape of data scienc
 
 ### Steps Followed
 #### 1. Data Loading and Cleaning:
-- Imported the dataset (cleaned3.csv) into a Pandas DataFrame.
+- Imported the dataset (datascience.csv) into a Pandas DataFrame.
 - Inspected the structure of the data, including columns like title_normalized, pay_percentile50, skill, and years_of_experience.
 #### 2. Exploratory Data Analysis:
 
@@ -23,6 +22,7 @@ The primary objective of this project is to analyze the landscape of data scienc
 - A viridis color palette was applied for a gradient effect, and the y-axis was inverted for better readability.
 ###### - Insights:
 - Titles such as "Senior Data Scientist" and "Machine Learning Engineer" dominate the top-paying jobs list.
+  
 ![Image_Alt](https://github.com/Zaheen-Ayesha/DataScienceJobMarket-EDA/blob/fe6aada568cdc9c2b367c89c2f94215fac797c52/topjob.png)
 
 ##### 2. Objective: Highlight companies offering the highest salaries.
@@ -32,6 +32,7 @@ The primary objective of this project is to analyze the landscape of data scienc
 - Additional formatting included gridlines and rotated x-axis labels for readability.
 ###### - Insights:
 - Top-tier tech companies appear prominently, indicating their competitive compensation strategies.
+  
 ![Image_Alt](https://github.com/Zaheen-Ayesha/DataScienceJobMarket-EDA/blob/fe6aada568cdc9c2b367c89c2f94215fac797c52/topcomp.png)
 
 ##### 3. Objective: Explore companies offering the lowest median salaries.
@@ -41,6 +42,7 @@ The primary objective of this project is to analyze the landscape of data scienc
 - Labels and gridlines were customized to ensure clarity.
 ###### - Insights:
 - Smaller or less profitable firms dominate this list, reflecting their limited budget for salaries.
+  
 ![Image_Alt](https://github.com/Zaheen-Ayesha/DataScienceJobMarket-EDA/blob/fe6aada568cdc9c2b367c89c2f94215fac797c52/lowcomp.png)
 
 ##### 4. Objective: Analyze the distribution of required years of experience.
@@ -49,15 +51,22 @@ The primary objective of this project is to analyze the landscape of data scienc
 - The plot used a steelblue color scheme for visual appeal.
 ###### - Insights:
 - Most roles require 2–5 years of experience, with outliers for senior-level positions demanding significantly more.
+  
 ![Image_Alt](https://github.com/Zaheen-Ayesha/DataScienceJobMarket-EDA/blob/fe6aada568cdc9c2b367c89c2f94215fac797c52/exp.png)
 
 ##### 5. Objective: Highlight the most in-demand skills for data science roles.
 ###### - Code Summary:
+- The 'skill' column contains lists of skills represented as strings (e.g., "['Python', 'SQL', 'Machine Learning']"), I used the ast.literal_eval function to convert these strings into actual Python lists.
+- "all_skills = [skill for skills in skill_series for skill in skills]" code is executed to create a single list of all skills by iterating through each list of skills in the skill_series
+- "skill_count = Counter(all_skills)" This uses the Counter class from the collections module to efficiently count the occurrences of each skill in the all_skills list.
+-The 20 skills with the highest counts from the skill_count dictionary was extracted using "top_skills = skill_count.most_common(20)".
+- The top_skills list, which contains tuples of (skill, count), into two separate lists was extracted using "skills, counts = zip(*top_skills)"
 - A horizontal bar chart was created using the magma palette to show the frequency of top 10 skills.
 - A word cloud was generated using the WordCloud library, applying the magma colormap to match the bar chart’s theme.
 ###### - Insights:
 - Skills like Python, SQL, and Machine Learning dominate the job market.
 - The word cloud effectively complements the bar chart by emphasizing popular skills visually.
+  
 ![Image_Alt](https://github.com/Zaheen-Ayesha/DataScienceJobMarket-EDA/blob/fe6aada568cdc9c2b367c89c2f94215fac797c52/skill.png)
 
 ##### 6. Objective: Examine the education levels required for data science roles.
@@ -65,7 +74,8 @@ The primary objective of this project is to analyze the landscape of data scienc
 - The dataset was filtered for columns representing different education levels (e.g., doctoral, master, bachelor).
 - A pie chart was used to display the proportion of each education level, with colors from the Paired palette.
 ###### - Insights:
-- Master’s degrees are most common among data professionals, followed by bachelor’s degrees.
+- Majority of Data Scientists hold Bachelors degree, but a masters degree is helpful since it follows bachelors by very close.
+  
 ![Image_Alt](https://github.com/Zaheen-Ayesha/DataScienceJobMarket-EDA/blob/fe6aada568cdc9c2b367c89c2f94215fac797c52/edu.png)
 
 ##### 7. Objective: Discover which industries have the most job postings.
@@ -74,6 +84,7 @@ The primary objective of this project is to analyze the landscape of data scienc
 - A horizontal bar chart with the YlGnBu palette was used for visualization.
 ###### - Insights:
 - Technology and finance industries lead in job postings for data professionals.
+  
 ![Image_Alt](https://github.com/Zaheen-Ayesha/DataScienceJobMarket-EDA/blob/fe6aada568cdc9c2b367c89c2f94215fac797c52/indu.png)
 
 ##### 8. Objective: Identify the sectors offering the highest median salaries.
@@ -82,6 +93,7 @@ The primary objective of this project is to analyze the landscape of data scienc
 - Gridlines and rotated labels were included for clarity.
 ###### - Insights:
 - Sectors like finance and pharmaceuticals offer the highest pay for data roles
+  
 ![Image_Alt](https://github.com/Zaheen-Ayesha/DataScienceJobMarket-EDA/blob/fe6aada568cdc9c2b367c89c2f94215fac797c52/sec.png)
 
 ##### 9. Objective: Analyze how working at company headquarters affects salary.
@@ -89,7 +101,9 @@ The primary objective of this project is to analyze the landscape of data scienc
 - A box plot was created to compare salaries for roles at headquarters (at_heartquartes) versus non-HQ locations.
 - Numerical labels were replaced with descriptive text (e.g., "At HQ" and "Not At HQ").
 ###### - Insights:
-- Roles based at headquarters tend to have higher median salaries, possibly due to proximity to decision-makers.
+- The average-pay of the people who work at the headquarters is almost the same as the one's who do not.
+- Outliers for people who work at the headquarters seems to be lower that that of who do not. This could be due to the fact that work has become more flexible since the pandemic with lots of remote jobs that pay well.
+  
 ![Image_Alt](https://github.com/Zaheen-Ayesha/DataScienceJobMarket-EDA/blob/fe6aada568cdc9c2b367c89c2f94215fac797c52/head.png)
 
 
