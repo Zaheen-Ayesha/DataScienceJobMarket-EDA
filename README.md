@@ -17,10 +17,9 @@ The primary objective of this project is to analyze the landscape of data scienc
 #### 2. Exploratory Data Analysis:
 ##### 1. Objective: Identify the job titles with the highest median salaries.
 ###### - Code Summary:
-
 - The dataset was grouped by title_normalized to calculate the median salary (pay_percentile50) for each job title.
 - The top 20 titles were extracted and visualized using a horizontal bar chart.
 - A viridis color palette was applied for a gradient effect, and the y-axis was inverted for better readability.
 ###### - Insights:
-
 - Titles such as "Senior Data Scientist" and "Machine Learning Engineer" dominate the top-paying jobs list.
+![Image_Alt]()
